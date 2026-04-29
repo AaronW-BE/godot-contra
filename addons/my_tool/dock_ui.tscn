@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://obadfkjwkcvt"]
+
+[ext_resource type="Script" uid="uid://djuqcebdh4ypn" path="res://addons/my_tool/FlowEditorMain.gd" id="1_r14el"]
+[ext_resource type="Script" uid="uid://dyivm386bhxba" path="res://addons/my_tool/NodeGraphManager.gd" id="1_tiguu"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_r14el"]
+device = -1
+ctrl_pressed = true
+keycode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_riafh"]
+events = [SubResource("InputEventKey_r14el")]
+
+[node name="FlowEditorRoot" type="HSplitContainer" unique_id=2105678101]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r14el")
+
+[node name="GraphEdit" type="GraphEdit" parent="." unique_id=214261799]
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("1_tiguu")
+
+[node name="InspectorPanel" type="PanelContainer" parent="." unique_id=1183118335]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InspectorPanel" unique_id=1181135563]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InspectorPanel/VBoxContainer" unique_id=1940827692]
+layout_mode = 2
+
+[node name="MenuButton" type="MenuButton" parent="InspectorPanel/VBoxContainer/HBoxContainer" unique_id=1686387509]
+layout_mode = 2
+text = "File"
+
+[node name="MenuButton2" type="MenuButton" parent="InspectorPanel/VBoxContainer/HBoxContainer" unique_id=1773278611]
+layout_mode = 2
+shortcut = SubResource("Shortcut_riafh")
+text = "Help"
+item_count = 3
+popup/item_0/text = "Search"
+popup/item_0/id = 0
+popup/item_1/text = "论坛"
+popup/item_1/id = 1
+popup/item_2/text = "社区"
+popup/item_2/id = 2
+
+[node name="Label" type="Label" parent="InspectorPanel/VBoxContainer" unique_id=189251881]
+layout_mode = 2
+text = "Inspector"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InspectorPanel/VBoxContainer" unique_id=1570466224]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PropertyBox" type="VBoxContainer" parent="InspectorPanel/VBoxContainer/ScrollContainer" unique_id=950727352]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

@@ -1,0 +1,237 @@
+[gd_scene format=3 uid="uid://byusc5pxrq586"]
+
+[ext_resource type="Texture2D" uid="uid://be5ut5hrvqpl5" path="res://assets/sprites/arrow.png" id="1_hsc7e"]
+[ext_resource type="Script" uid="uid://c0e8o3unydppy" path="res://scens/title_screen.gd" id="1_urp0v"]
+[ext_resource type="Texture2D" uid="uid://bsomofsyr10ic" path="res://assets/sprites/logo.png" id="1_vgkvh"]
+[ext_resource type="Texture2D" uid="uid://bfdqvuwchsaw1" path="res://assets/sprites/title.png" id="2_hsc7e"]
+[ext_resource type="PackedScene" uid="uid://ugxeb76p5kp4" path="res://scens/level.tscn" id="2_ip1x2"]
+[ext_resource type="Texture2D" uid="uid://dg41aj1iqqboq" path="res://assets/sprites/title_bro.png" id="3_urp0v"]
+
+[sub_resource type="Animation" id="Animation_pr06a"]
+resource_name = "1p_selected"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Root/VBoxContainer/HBoxContainer/Label2:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_mebev"]
+resource_name = "2p_selected"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Root/VBoxContainer/HBoxContainer2/Label3:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ip1x2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Root:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(256, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_urp0v"]
+resource_name = "push"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Root:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(256, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ip1x2"]
+_data = {
+&"1p_selected": SubResource("Animation_pr06a"),
+&"2p_selected": SubResource("Animation_mebev"),
+&"RESET": SubResource("Animation_ip1x2"),
+&"push": SubResource("Animation_urp0v")
+}
+
+[node name="TitleScreen" type="Node2D" unique_id=1632833203 node_paths=PackedStringArray("texture_indicator_1p", "texture_indicator_2p", "title_bro_texture")]
+script = ExtResource("1_urp0v")
+texture_indicator_1p = NodePath("CanvasLayer/Root/VBoxContainer/HBoxContainer/Control/Texture_Indicator_1p")
+texture_indicator_2p = NodePath("CanvasLayer/Root/VBoxContainer/HBoxContainer2/Control/Texture_Indicator_2p")
+title_bro_texture = NodePath("CanvasLayer/Root/title_bro_texture")
+main_level_scene = ExtResource("2_ip1x2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=203871141]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1583202726]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Root" type="Control" parent="CanvasLayer" unique_id=1481305978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 256.0
+offset_right = 255.99951
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Root" unique_id=317411970]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 142.0
+offset_right = 142.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "PLAY SELECT"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Root" unique_id=912579039]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -96.0
+offset_top = -49.0
+offset_right = 96.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 8
+text = "TM AND © 1988
+Konami industry co.ltd
+Licensed by
+nintendo of ameraica inc"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Root" unique_id=1160730538]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 7.0
+offset_right = 44.0
+offset_bottom = 26.659575
+grow_horizontal = 2
+texture = ExtResource("1_vgkvh")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Root" unique_id=2023621364]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -81.0
+offset_right = 102.0
+offset_bottom = 3.3769684
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hsc7e")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="title_bro_texture" type="TextureRect" parent="CanvasLayer/Root" unique_id=120169388]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 113.0
+offset_right = 236.0
+offset_bottom = 194.39081
+texture = ExtResource("3_urp0v")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Root" unique_id=941904451]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 160.0
+offset_right = 135.0
+offset_bottom = 183.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Root/VBoxContainer" unique_id=443264400]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Root/VBoxContainer/HBoxContainer" unique_id=1184780478]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Texture_Indicator_1p" type="TextureRect" parent="CanvasLayer/Root/VBoxContainer/HBoxContainer/Control" unique_id=939245918]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 9.0
+texture = ExtResource("1_hsc7e")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="CanvasLayer/Root/VBoxContainer/HBoxContainer" unique_id=1969022470]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "1 PLAYER "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Root/VBoxContainer" unique_id=574557302]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Root/VBoxContainer/HBoxContainer2" unique_id=88872885]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Texture_Indicator_2p" type="TextureRect" parent="CanvasLayer/Root/VBoxContainer/HBoxContainer2/Control" unique_id=2126686872]
+visible = false
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 0
+offset_right = 20.0
+offset_bottom = 9.0
+texture = ExtResource("1_hsc7e")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label3" type="Label" parent="CanvasLayer/Root/VBoxContainer/HBoxContainer2" unique_id=1373814894]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "2 Players"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=451201221]
+libraries/ = SubResource("AnimationLibrary_ip1x2")

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://btpjcm5ad7473"]
+
+[ext_resource type="Script" uid="uid://bd8rqlc8v0jr5" path="res://Level1.gd" id="1_level_1"]
+[ext_resource type="PackedScene" uid="uid://chj10vlln0e1g" path="res://Player.tscn" id="2_player"]
+[ext_resource type="AudioStream" uid="uid://d1gn1fc4warbm" path="res://assets/audio/music/2 - Jungle  Hangar (Stages 1  7).mp3" id="3_cove1"]
+[ext_resource type="Script" uid="uid://cw3fylrfslveb" path="res://Player.gd" id="3_dn5ey"]
+[ext_resource type="PackedScene" uid="uid://dmmnxndn5pyjl" path="res://assets/medal.tscn" id="4_dwyiq"]
+[ext_resource type="PackedScene" uid="uid://7y8naubb1dp4" path="res://bullet_base.tscn" id="6_lmyl5"]
+[ext_resource type="PackedScene" uid="uid://c5nnupgqf5c53" path="res://enemy_base.tscn" id="7_mlbie"]
+[ext_resource type="Texture2D" uid="uid://kika1ad3obu0" path="res://assets/map/ContraMapStage1BG.png" id="8_s3sxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wall"]
+size = Vector2(16, 240)
+
+[node name="Level1" type="Node2D" unique_id=1455177276]
+script = ExtResource("1_level_1")
+
+[node name="bg_map" type="Sprite2D" parent="." unique_id=1509872065]
+position = Vector2(1780.4847, 119.840706)
+scale = Vector2(1.07, 1.07)
+texture = ExtResource("8_s3sxq")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2090934588]
+layer = -1
+
+[node name="MainCamera" type="Camera2D" parent="." unique_id=1929427758]
+position = Vector2(128, 120)
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=1658361285]
+position = Vector2(0, 120)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=1212313595]
+shape = SubResource("RectangleShape2D_wall")
+
+[node name="Player" parent="." unique_id=1146641701 instance=ExtResource("2_player")]
+position = Vector2(88, 72)
+script = ExtResource("3_dn5ey")
+bullet_scene = ExtResource("6_lmyl5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=858555127]
+stream = ExtResource("3_cove1")
+autoplay = true
+
+[node name="foreground_layer" type="CanvasLayer" parent="." unique_id=1100488475]
+
+[node name="Medal" parent="foreground_layer" unique_id=685674153 instance=ExtResource("4_dwyiq")]
+metadata/_edit_lock_ = true
+
+[node name="Enemy_Base" parent="." unique_id=1693578753 instance=ExtResource("7_mlbie")]
+position = Vector2(241, 95)

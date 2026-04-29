@@ -1,0 +1,286 @@
+[gd_scene format=3 uid="uid://b08xdev06p7ea"]
+
+[ext_resource type="Script" uid="uid://rqvrg12v5788" path="res://scens/score_panel.gd" id="1_britu"]
+
+[sub_resource type="Animation" id="Animation_srest"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/t_1p_score:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/t_high_score:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer2/HBoxContainer/t_2p_score:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_britu"]
+resource_name = "twinkle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainer/HBoxContainer/t_1p_score:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer/t_high_score:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer2/HBoxContainer/t_2p_score:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cucx4"]
+_data = {
+&"RESET": SubResource("Animation_srest"),
+&"twinkle": SubResource("Animation_britu")
+}
+
+[node name="ScorePanel" type="Node2D" unique_id=1590675311 node_paths=PackedStringArray("t_1p_lifes", "t_1p_scores", "t_2p_lifes", "t_2p_scores", "t_stage", "t_level_name", "t_high_score")]
+script = ExtResource("1_britu")
+t_1p_lifes = NodePath("CanvasLayer/VBoxContainer/HBoxContainer2/t_1p_lifes")
+t_1p_scores = NodePath("CanvasLayer/VBoxContainer/HBoxContainer/t_1p_score")
+t_2p_lifes = NodePath("CanvasLayer/VBoxContainer2/HBoxContainer2/t_p2_lifes")
+t_2p_scores = NodePath("CanvasLayer/VBoxContainer2/HBoxContainer/t_2p_score")
+t_stage = NodePath("CanvasLayer/HBoxContainer2/t_stage")
+t_level_name = NodePath("CanvasLayer/t_level_name")
+t_high_score = NodePath("CanvasLayer/HBoxContainer/t_high_score")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=871201652]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1917703694]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=844815209]
+offset_left = 14.0
+offset_top = 19.0
+offset_right = 123.0
+offset_bottom = 46.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=857627797]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=275682683]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "1p"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="t_1p_score" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer" unique_id=1719288769]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer" unique_id=1387331592]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=822474378]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "REST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="t_1p_lifes" type="Label" parent="CanvasLayer/VBoxContainer/HBoxContainer2" unique_id=1907867098]
+custom_minimum_size = Vector2(26, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "3"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer" unique_id=1842588704]
+offset_left = 138.0
+offset_top = 19.0
+offset_right = 247.0
+offset_bottom = 46.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=405075148]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer" unique_id=1919082828]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "2p"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="t_2p_score" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer" unique_id=565356987]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/VBoxContainer2" unique_id=1121665909]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer2" unique_id=449206088]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "REST"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="t_p2_lifes" type="Label" parent="CanvasLayer/VBoxContainer2/HBoxContainer2" unique_id=362979093]
+custom_minimum_size = Vector2(26, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "3"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=641715571]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -63.0
+offset_right = 42.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Label3" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=1457892335]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "HI"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="t_high_score" type="Label" parent="CanvasLayer/HBoxContainer" unique_id=345275465]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "20000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer" unique_id=1575252882]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -3.0
+offset_right = 30.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Label4" type="Label" parent="CanvasLayer/HBoxContainer2" unique_id=1252818535]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "STAGE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="t_stage" type="Label" parent="CanvasLayer/HBoxContainer2" unique_id=1417513591]
+custom_minimum_size = Vector2(16.91, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="t_level_name" type="Label" parent="CanvasLayer" unique_id=867477182]
+custom_minimum_size = Vector2(68.995, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = 20.0
+offset_right = 35.994995
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.72156864, 0.72156864, 0.72156864, 1)
+theme_override_font_sizes/font_size = 8
+text = "JUNGLE"
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=885145429]
+root_node = NodePath("../CanvasLayer")
+libraries/ = SubResource("AnimationLibrary_cucx4")
+autoplay = &"twinkle"

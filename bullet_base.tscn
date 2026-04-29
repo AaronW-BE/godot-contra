@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://7y8naubb1dp4"]
+
+[ext_resource type="Script" uid="uid://bmgbhqvsssjtt" path="res://bullet_base.gd" id="1_soojh"]
+[ext_resource type="Texture2D" uid="uid://cqu2qk04f0a2c" path="res://assets/contra_sprites/sprite_1e.png" id="1_txe3q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_soojh"]
+radius = 2.0
+
+[node name="Bullet_Base" type="Area2D" unique_id=1971621697]
+script = ExtResource("1_soojh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1827589084]
+texture = ExtResource("1_txe3q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1000176915]
+shape = SubResource("CircleShape2D_soojh")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=715383279]
+rect = Rect2(-2, -2, 4, 4)

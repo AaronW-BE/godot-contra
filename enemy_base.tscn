@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c5nnupgqf5c53"]
+
+[ext_resource type="Texture2D" uid="uid://b8ky432r7akau" path="res://assets/contra_sprites/sprite_3b.png" id="1_8nqel"]
+[ext_resource type="Script" uid="uid://ds7tv3kjyuinh" path="res://enemy_base.gd" id="1_edvsq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_edvsq"]
+radius = 8.0
+
+[node name="Enemy_Base" type="Node2D" unique_id=1693578753]
+script = ExtResource("1_edvsq")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=882142390]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=621625102]
+texture = ExtResource("1_8nqel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=734132578]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_edvsq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

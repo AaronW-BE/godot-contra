@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelList" format=3 uid="uid://u5jk1a3b6qnb"]
+
+[ext_resource type="Script" uid="uid://b2irl2relqwuc" path="res://scripts/LevelData.gd" id="1_0840q"]
+[ext_resource type="PackedScene" uid="uid://btpjcm5ad7473" path="res://Level1.tscn" id="2_irkid"]
+[ext_resource type="Script" uid="uid://bfgs3ibk1iy2d" path="res://scripts/LevelList.gd" id="3_qfgdm"]
+
+[sub_resource type="Resource" id="Resource_iahmb"]
+script = ExtResource("1_0840q")
+level_name = "Jungle"
+level_scene = ExtResource("2_irkid")
+metadata/_custom_type_script = "uid://b2irl2relqwuc"
+
+[resource]
+script = ExtResource("3_qfgdm")
+levels = Array[ExtResource("1_0840q")]([SubResource("Resource_iahmb")])
+metadata/_custom_type_script = "uid://bfgs3ibk1iy2d"

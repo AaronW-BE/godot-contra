@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="AudioDatabase" format=3 uid="uid://b0u8c22vrip8y"]
+
+[ext_resource type="Script" uid="uid://djlxgebn16qhr" path="res://scripts/AudioDatabase.gd" id="1_gn4s3"]
+[ext_resource type="AudioStream" uid="uid://ldst2e1inuoj" path="res://assets/audio/music/death.mp3" id="2_u5qio"]
+[ext_resource type="AudioStream" uid="uid://clset16uxggtu" path="res://assets/audio/music/1 - Title Screen.mp3" id="3_enxdf"]
+[ext_resource type="AudioStream" uid="uid://dnbu57moeg7d1" path="res://assets/audio/sfx/14 Pause.mp3" id="4_jb0ta"]
+
+[resource]
+script = ExtResource("1_gn4s3")
+sfx_library = Dictionary[String, AudioStream]({
+"death": ExtResource("2_u5qio"),
+"pause": ExtResource("4_jb0ta"),
+"title_screen": ExtResource("3_enxdf")
+})
+metadata/_custom_type_script = "uid://djlxgebn16qhr"

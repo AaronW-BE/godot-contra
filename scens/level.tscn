@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://ugxeb76p5kp4"]
+
+[ext_resource type="Script" uid="uid://coycr7qajdoch" path="res://scens/level.gd" id="1_4hgif"]
+[ext_resource type="PackedScene" uid="uid://b08xdev06p7ea" path="res://scens/score_panel.tscn" id="2_6lwcx"]
+[ext_resource type="PackedScene" uid="uid://btpjcm5ad7473" path="res://Level1.tscn" id="3_s40gg"]
+
+[sub_resource type="Animation" id="Animation_4hgif"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/mask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/mask:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_pd1qi"]
+resource_name = "enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/mask:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(256, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/mask:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6lwcx"]
+_data = {
+&"RESET": SubResource("Animation_4hgif"),
+&"enter": SubResource("Animation_pd1qi")
+}
+
+[node name="Level" type="Node2D" unique_id=1086054964]
+script = ExtResource("1_4hgif")
+score_panel_scene = ExtResource("2_6lwcx")
+main_scene = ExtResource("3_s40gg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1750479405]
+
+[node name="mask" type="ColorRect" parent="CanvasLayer" unique_id=1890996187]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.00018310547
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=912674548]
+libraries/ = SubResource("AnimationLibrary_6lwcx")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

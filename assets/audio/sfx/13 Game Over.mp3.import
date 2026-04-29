@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djvmhjxi1q51k"
+path="res://.godot/imported/13 Game Over.mp3-f77cc33b7021ff5c1a4d2dd729a1e3b6.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/sfx/13 Game Over.mp3"
+dest_files=["res://.godot/imported/13 Game Over.mp3-f77cc33b7021ff5c1a4d2dd729a1e3b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
